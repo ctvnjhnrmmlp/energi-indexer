@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { RESPONSE_CODES, RESPONSE_MESSAGES } from '../../constants/response.constant';
-import { AppError } from '../../errors/app.error';
-import { logger } from '../../utilities/logger.utility';
+import { RESPONSE_CODES, RESPONSE_MESSAGES } from '../constants/response.constant';
+import { AppError } from '../errors/app.error';
+import { logger } from '../utilities/logger.utility';
 
 export function errorMiddleware(err: AppError, req: Request, res: Response) {
   logger.error(err.message);
