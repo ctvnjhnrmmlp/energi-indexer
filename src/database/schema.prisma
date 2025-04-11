@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URI")
+}
+
+model Block {
+  id      String        @id @default(auto()) @map("_id") @db.ObjectId
+  hash    String        @unique
+  number  Int           @unique
+  txs     Transaction[]
+}
+
+model Transaction {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  hash        String   @unique
+  from        String
+  to          String
+  nonce       Int
+  amount      Int
+  blockId     String   @db.ObjectId
+  block       Block    @relation(fields: [blockId], references: [id])
+}

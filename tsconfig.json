@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "target": "esnext",
+    "module": "commonjs",
+    "strict": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["./*.js", "api/**/*.ts", "src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
