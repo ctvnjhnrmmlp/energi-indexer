@@ -43,6 +43,7 @@ export class IndexerInstance {
               to: '',
               nonce: 0,
               amount: 0,
+              blockNumber: i,
             })),
           },
         },
