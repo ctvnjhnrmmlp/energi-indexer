@@ -21,6 +21,7 @@ model Transaction {
   to          String
   nonce       Int
   amount      Int
+  blockNumber Int
   blockId     String   @db.ObjectId
   block       Block    @relation(fields: [blockId], references: [id])
 }

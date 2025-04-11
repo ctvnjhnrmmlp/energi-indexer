@@ -8,12 +8,12 @@ export class BlockService {
   }
 
   async find() {
-    let block = this.blockRepository.find();
+    const block = this.blockRepository.find();
     return block;
   }
 
   async findByNumber({ number }: { number: number }) {
-    let block = this.blockRepository.findByNumber({ number });
+    const block = this.blockRepository.findByNumber({ number });
     return block;
   }
 }
