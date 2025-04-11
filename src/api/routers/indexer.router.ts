@@ -1,11 +1,9 @@
 import { Router } from 'express';
-import BlockController from '../controllers/block.controller';
+import IndexerController from '../controllers/indexer.controller';
 
-const BlockRouter = Router();
-const controller = new BlockController();
+const IndexerRouter = Router();
+const controller = new IndexerController();
 
-BlockRouter.get('/', controller.find);
+IndexerRouter.get('/', controller.index);
 
-BlockRouter.get('/:number', controller.findByNumber);
-
-export default BlockRouter;
+export default IndexerRouter;

@@ -2,8 +2,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import helmet from 'helmet';
-// import { errorMiddleware } from '../middlewares/error.middleware';
 import BlockRouter from '../routers/block.router';
+import IndexerRouter from '../routers/indexer.router';
 import StatRouter from '../routers/stats.router';
 import TxRouter from '../routers/tx.router';
 
@@ -31,8 +31,7 @@ export class AppInstance {
     this.instance.use('/api/block', BlockRouter);
     this.instance.use('/api/stat', StatRouter);
     this.instance.use('/api/tx', TxRouter);
-    this.instance.use('/api/index');
-    // this.instance.use(errorMiddleware);
+    this.instance.use('/api/index', IndexerRouter);
   }
 
   public start() {
