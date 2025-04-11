@@ -9,16 +9,21 @@ export default class IndexerController {
     this.indexerService = new IndexerService();
   }
 
-  async index(req: Request, res: Response, next: NextFunction) {
+  public index = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { scan } = req.params;
-      const [from, to] = (scan as string).split(':').map(Number);
-      this.indexerService.index({ from, to });
-      res.status(RESPONSE_CODES.SUCCESS).json({
-        message: RESPONSE_MESSAGES.SUCCESS,
-      });
+      const { scan } = req.query;
+      const scanParam = typeof scan === 'string' ? scan : '';
+      const [from, to] = scanParam.split(':').map(Number);
+
+      if (isNaN(from)) {
+        res.status(400).json({ message: 'Invalid scan format. Expected "from:to".' });
+        return;
+      }
+
+      await this.indexerService.index({ from, to });
+      res.status(RESPONSE_CODES.SUCCESS).json({ message: RESPONSE_MESSAGES.SUCCESS });
     } catch (error) {
       next(error);
     }
-  }
+  };
 }
