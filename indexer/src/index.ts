@@ -65,6 +65,7 @@ async function scanBlock(blockNumber: bigint) {
     const transactions = block.transactions
       .map((tx) => {
         console.log(`Processing transaction: ${tx.hash}, Value: ${tx.value}`);
+
         const amountBigInt = safeBigInt(tx.value);
         if (!amountBigInt) {
           console.error(`Skipping invalid transaction ${tx.hash}: Invalid amount`);
@@ -79,9 +80,9 @@ async function scanBlock(blockNumber: bigint) {
           hash: tx.hash,
           from: tx.from,
           to: tx.to ?? '',
-          nonce: nonceBigInt,
+          nonce: Number(nonceBigInt),
           amount: amountBigInt.toString(),
-          blockNumber: blockNumberBigInt,
+          blockNumber: Number(blockNumberBigInt),
           blockId: createdBlock.id,
         };
       })
@@ -89,7 +90,6 @@ async function scanBlock(blockNumber: bigint) {
     if (transactions.length > 0) {
       await Prisma.transaction.createMany({
         data: transactions,
-        skipDuplicates: true,
       });
     }
   } catch (error) {
