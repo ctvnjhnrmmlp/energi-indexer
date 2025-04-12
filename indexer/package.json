@@ -13,6 +13,7 @@
     "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^8.29.1",
     "@typescript-eslint/parser": "^8.29.1",
+    "axios": "^1.8.4",
     "dotenv": "^16.5.0",
     "dotenv-cli": "^8.0.0",
     "eslint": "^9.24.0",
