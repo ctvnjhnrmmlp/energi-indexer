@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "./node_modules/nodemon/bin/nodemon.js",
+    "start": "tsc && node ./dist/api/index.js",
+    "build": "tsc && npx prisma db push",
+    "db:push": "npx prisma db push",
+    "db:migrate": "npx prisma migrate deploy"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "@types/node": "^22.14.0",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
+    "dotenv": "^16.5.0",
+    "dotenv-cli": "^8.0.0",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.3",
+    "prisma": "^6.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "uuid": "^11.1.0",
+    "viem": "^2.26.3",
+    "winston": "^3.17.0"
+  },
+  "prisma": {
+    "schema": "./database/schema.prisma"
+  }
+}

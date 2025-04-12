@@ -1,4 +1,4 @@
-import Prisma from '../../database/database';
+import Prisma from '../../../indexer/database/database';
 
 export class BlockRepository {
   async find() {

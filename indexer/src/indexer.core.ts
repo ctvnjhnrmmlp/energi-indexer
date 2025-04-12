@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import { createPublicClient, http } from 'viem';
-import Prisma from '../../database/database';
+import Prisma from '../database/database';
 
 dotenv.config();
 

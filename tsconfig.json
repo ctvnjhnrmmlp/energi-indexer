@@ -10,6 +10,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["./*.js", "api/**/*.ts", "src/**/*.ts", "indexer/**/*"],
+  "include": ["./*.js", "api/**/*.ts", "src/**/*.ts", "indexer/**/*", "types.d.ts"],
   "exclude": ["node_modules"]
 }
