@@ -1,12 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "dev": "./node_modules/nodemon/bin/nodemon.js",
-    "start": "tsc && node ./dist/api/index.js",
-    "build": "tsc && npx prisma db push",
-    "db:push": "npx prisma db push",
-    "db:migrate": "npx prisma migrate deploy",
-    "vercel:build": "echo Vercel"
+    "dev": "nodemon src/server.ts",
+    "start": "node dist/server.js",
+    "build": "tsc && prisma db push",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",
@@ -34,6 +33,6 @@
     "winston": "^3.17.0"
   },
   "prisma": {
-    "schema": "./src/database/schema.prisma"
+    "schema": "./database/schema.prisma"
   }
 }
