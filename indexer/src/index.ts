@@ -36,7 +36,7 @@ async function scanBlock(blockNumber: bigint) {
           from: tx.from,
           to: tx.to ?? '',
           nonce: Number(tx.nonce),
-          amount: Number(tx.value),
+          amount: tx.value.toString(),
           blockNumber: Number(block.number),
         })),
       },
