@@ -20,7 +20,7 @@ model Transaction {
   from        String
   to          String
   nonce       BigInt
-  amount      BigInt
+  amount      String
   blockNumber BigInt
   blockId     String @db.ObjectId
   block       Block  @relation(fields: [blockId], references: [id])
